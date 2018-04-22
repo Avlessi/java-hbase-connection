@@ -5,14 +5,14 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.MasterNotRunningException;
-import org.apache.hadoop.hbase.ZooKeeperConnectionException;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 
 import java.io.IOException;
 
 public class HbaseClientExample {
 
-    public void testConnection() throws ZooKeeperConnectionException {
+    public void testConnection() throws Exception {
+        org.apache.hadoop.hbase.MasterNotRunningException ex;
         Configuration config = HBaseConfiguration.create();
 
         String path = this.getClass()
@@ -33,9 +33,13 @@ public class HbaseClientExample {
     public static void main(String [] args) throws IOException, ServiceException {
 
         System.out.println("hello!");
-
-        HbaseClientExample hbaseClientExample = new HbaseClientExample();
-        hbaseClientExample.testConnection();
+        try {
+            HbaseClientExample hbaseClientExample = new HbaseClientExample();
+            hbaseClientExample.testConnection();
+        }
+        catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }

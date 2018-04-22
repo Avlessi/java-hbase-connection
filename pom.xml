@@ -9,15 +9,12 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <jdk.version>1.8</jdk.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <hbase.version>1.1.2</hbase.version>
+        <hbase.version>1.2.1</hbase.version>
         <java.version>1.8</java.version>
-        <io.confluent.version>3.3.0</io.confluent.version>
-        <org.apache.kafka.version>0.11.0.0</org.apache.kafka.version>
-        <junit.version>4.12</junit.version>
     </properties>
-
 
     <build>
         <plugins>
@@ -39,13 +36,16 @@
         </plugins>
     </build>
 
+    <!-- mvn exec:java -Dexec.mainClass="com.avlesi.hbaselearn.HbaseClientExample" -->
+
 
     <dependencies>
 
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase</artifactId>
-            <version>0.90.2</version>
+            <version>${hbase.version}</version>
+            <type>pom</type>
         </dependency>
 
         <dependency>
@@ -61,6 +61,14 @@
             <version>${hbase.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-core -->
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-core</artifactId>
+            <version>1.2.1</version>
+        </dependency>
+
 
     </dependencies>
 
