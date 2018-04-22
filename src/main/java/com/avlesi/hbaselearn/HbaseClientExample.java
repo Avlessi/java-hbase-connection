@@ -37,11 +37,13 @@ public class HbaseClientExample {
     }
 
     public void createTable() {
+        System.out.println("create table");
         Connection connection = null;
         try {
             connection = getConnection();
             Admin admin = connection.getAdmin();
-            hbaseOperations.createTable(admin,"titi");
+            hbaseOperations.createTable(admin, "titi");
+
         }
         catch (IOException e) {
             System.out.println(e.getMessage());

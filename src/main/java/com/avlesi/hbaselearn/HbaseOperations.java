@@ -17,5 +17,8 @@ public class HbaseOperations {
             desc.addFamily(new HColumnDescriptor("fam2"));
             admin.createTable(desc);
         }
+        else {
+            System.out.println("table titi already exists");
+        }
     }
 }
