@@ -1,4 +1,4 @@
-<configuration>
+<!--<configuration>
     <property>
         <name>hbase.zookeeper.quorum</name>
         <value>localhost</value>
@@ -8,3 +8,4 @@
         <value>2181</value>
     </property>
 </configuration>
+-->
