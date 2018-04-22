@@ -19,7 +19,7 @@ public class HbaseClientExample {
     public HbaseClientExample() {
         config = HBaseConfiguration.create();
         config.set(HConstants.ZOOKEEPER_QUORUM, "localhost");
-        config.set(HConstants.ZOOKEEPER_CLIENT_PORT, "2182");
+        config.set(HConstants.ZOOKEEPER_CLIENT_PORT, "2181");
     }
 
     public void testConnection() throws Exception {
