@@ -2,8 +2,8 @@ package com.avlesi.hbaselearn;
 
 import com.google.protobuf.ServiceException;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.MasterNotRunningException;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
@@ -18,8 +18,10 @@ public class HbaseClientExample {
 
     public HbaseClientExample() {
         config = HBaseConfiguration.create();
-        config.set(HConstants.ZOOKEEPER_QUORUM, "localhost");
-        config.set(HConstants.ZOOKEEPER_CLIENT_PORT, "2181");
+        //config.set(HConstants.ZOOKEEPER_QUORUM, "localhost");
+        //config.set(HConstants.ZOOKEEPER_CLIENT_PORT, "2181");
+        String path = this.getClass().getClassLoader().getResource("hbase-site.xml").getPath();
+        config.addResource(new Path(path));
     }
 
     public void testConnection() throws Exception {
